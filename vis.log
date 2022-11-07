@@ -1,0 +1,7 @@
+---- vis / ericw-tools v0.18.1-32-g6660c5f ----
+running with 16 threads
+testlevel = 4
+LoadBSPFile: 'C:\Program Files (x86)\Steam\steamapps\common\Half-Life\testmod\maps\testroom.bsp'
+BSP is version 30
+************ ERROR ************
+Sorry, this bsp version is not supported.
