@@ -232,7 +232,7 @@ float V_CalcRoll(Vector angles, Vector velocity, float rollangle, float rollspee
 	{
 		side = value;
 	}
-	return side * sign;
+	return 0;
 }
 
 typedef struct pitchdrift_s

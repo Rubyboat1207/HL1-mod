@@ -81,12 +81,12 @@ edges               0/256000         0/1024000  ( 0.0%)
 texdata          [variable]        356/33554432 ( 0.0%)
 lightdata        [variable]          0/50331648 ( 0.0%)
 visdata          [variable]          0/8388608  ( 0.0%)
-entdata          [variable]        477/2097152  ( 0.0%)
+entdata          [variable]        606/2097152  ( 0.0%)
 * AllocBlock        0/64             0/0        ( 0.0%)
 8 textures referenced
-=== Total BSP file data space used: 3873 bytes ===
+=== Total BSP file data space used: 4002 bytes ===
 Wad files required to run the map: "decals.wad;halflife.wad;liquids.wad;xeno.wad;"
-0.06 seconds elapsed
+0.12 seconds elapsed
 
 -----   END   sdHLCSG -----
 
@@ -156,12 +156,12 @@ edges              81/256000       324/1024000  ( 0.0%)
 texdata          [variable]        356/33554432 ( 0.0%)
 lightdata        [variable]          0/50331648 ( 0.0%)
 visdata          [variable]          0/8388608  ( 0.0%)
-entdata          [variable]        477/2097152  ( 0.0%)
+entdata          [variable]        606/2097152  ( 0.0%)
 * AllocBlock        1/64             0/0        ( 1.6%)
 8 textures referenced
-=== Total BSP file data space used: 5153 bytes ===
+=== Total BSP file data space used: 5282 bytes ===
 Wad files required to run the map: "decals.wad;halflife.wad;liquids.wad;xeno.wad;"
-0.14 seconds elapsed
+0.08 seconds elapsed
 
 -----   END   sdHLBSP -----
 
@@ -226,12 +226,12 @@ edges              81/256000       324/1024000  ( 0.0%)
 texdata          [variable]        356/33554432 ( 0.0%)
 lightdata        [variable]          0/50331648 ( 0.0%)
 visdata          [variable]          1/8388608  ( 0.0%)
-entdata          [variable]        477/2097152  ( 0.0%)
+entdata          [variable]        606/2097152  ( 0.0%)
 * AllocBlock        1/64             0/0        ( 1.6%)
 8 textures referenced
-=== Total BSP file data space used: 5154 bytes ===
+=== Total BSP file data space used: 5283 bytes ===
 Wad files required to run the map: "decals.wad;halflife.wad;liquids.wad;xeno.wad;"
-0.06 seconds elapsed
+0.03 seconds elapsed
 
 -----   END   sdHLVIS -----
 
@@ -321,7 +321,7 @@ Reading texlights from 'C:\Program Files (x86)\Steam\steamapps\common\Half-Life\
 36 faces
 Create Patches : 276 base patches
 6087 square feet [876544.00 square inches]
-0 direct lights and 0 fast direct lights
+1 direct lights and 0 fast direct lights
 1 light styles
 
 FindFacePositions:
@@ -334,7 +334,7 @@ visibility matrix   :   0.0 megs
 MakeScales:
  (0.00 seconds)
 Transfer Lists :       58160 :    58.16k transfers
-       Indices :        3736 :     3.65k bytes
+       Indices :        3648 :     3.56k bytes
           Data :      117145 :   114.40k bytes
 Bounce 1 GatherLight:
  (0.00 seconds)
@@ -353,9 +353,9 @@ Bounce 7 GatherLight:
 Bounce 8 GatherLight:
  (0.00 seconds)
 CreateTriangulations:
- (0.01 seconds)
+ (0.00 seconds)
 AddPatchLights:
- (0.02 seconds)
+ (0.01 seconds)
 FinalLightFace:
  (0.00 seconds)
 
@@ -375,14 +375,14 @@ marksurfaces       36/65535         72/131070   ( 0.1%)
 surfedges         160/512000       640/2048000  ( 0.0%)
 edges              81/256000       324/1024000  ( 0.0%)
 texdata          [variable]        356/33554432 ( 0.0%)
-lightdata        [variable]          1/50331648 ( 0.0%)
+lightdata        [variable]      13137/50331648 ( 0.0%)
 visdata          [variable]          1/8388608  ( 0.0%)
-entdata          [variable]        477/2097152  ( 0.0%)
+entdata          [variable]        606/2097152  ( 0.0%)
 * AllocBlock        1/64             0/0        ( 1.6%)
 8 textures referenced
-=== Total BSP file data space used: 5155 bytes ===
+=== Total BSP file data space used: 18420 bytes ===
 Wad files required to run the map: "decals.wad;halflife.wad;liquids.wad;xeno.wad;"
-0.27 seconds elapsed
+0.18 seconds elapsed
 
 -----   END   sdHLRAD -----
 
