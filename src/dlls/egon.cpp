@@ -204,6 +204,7 @@ void CEgon::PrimaryAttack()
 {
 	m_fireMode = FIRE_WIDE;
 	Attack();
+	
 }
 
 void CEgon::Fire(const Vector& vecOrigSrc, const Vector& vecDir)
@@ -265,7 +266,7 @@ void CEgon::Fire(const Vector& vecOrigSrc, const Vector& vecDir)
 				// multiplayer uses 1 ammo every 1/10th second
 				if (gpGlobals->time >= m_flAmmoUseTime)
 				{
-					UseAmmo(1);
+					//UseAmmo(1);
 					m_flAmmoUseTime = gpGlobals->time + 0.1;
 				}
 			}
@@ -274,7 +275,7 @@ void CEgon::Fire(const Vector& vecOrigSrc, const Vector& vecDir)
 				// single player, use 3 ammo/second
 				if (gpGlobals->time >= m_flAmmoUseTime)
 				{
-					UseAmmo(1);
+					//UseAmmo(1);
 					m_flAmmoUseTime = gpGlobals->time + 0.166;
 				}
 			}
@@ -311,7 +312,7 @@ void CEgon::Fire(const Vector& vecOrigSrc, const Vector& vecDir)
 				//multiplayer uses 5 ammo/second
 				if (gpGlobals->time >= m_flAmmoUseTime)
 				{
-					UseAmmo(1);
+					//UseAmmo(1);
 					m_flAmmoUseTime = gpGlobals->time + 0.2;
 				}
 			}
@@ -320,7 +321,7 @@ void CEgon::Fire(const Vector& vecOrigSrc, const Vector& vecDir)
 				// Wide mode uses 10 charges per second in single player
 				if (gpGlobals->time >= m_flAmmoUseTime)
 				{
-					UseAmmo(1);
+					//UseAmmo(1);
 					m_flAmmoUseTime = gpGlobals->time + 0.1;
 				}
 			}
@@ -502,6 +503,7 @@ void CEgon::EndAttack()
 	m_fireState = FIRE_OFF;
 
 	DestroyEffect();
+	RandomWeapon(m_pPlayer);
 }
 
 

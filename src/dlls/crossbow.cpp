@@ -292,7 +292,6 @@ void CCrossbow::Holster()
 
 void CCrossbow::PrimaryAttack()
 {
-
 #ifdef CLIENT_DLL
 	if (m_pPlayer->m_iFOV != 0 && bIsMultiplayer())
 #else
@@ -304,6 +303,7 @@ void CCrossbow::PrimaryAttack()
 	}
 
 	FireBolt();
+	RandomWeapon(m_pPlayer);
 }
 
 // this function only gets called in multiplayer
@@ -349,6 +349,7 @@ void CCrossbow::FireSniperBolt()
 		ApplyMultiDamage(pev, m_pPlayer->pev);
 	}
 #endif
+
 }
 
 void CCrossbow::FireBolt()
@@ -405,7 +406,7 @@ void CCrossbow::FireBolt()
 
 	if (0 == m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
 		// HEV suit - indicate out of ammo condition
-		m_pPlayer->SetSuitUpdate("!HEV_AMO0", false, 0);
+		//m_pPlayer->SetSuitUpdate("!HEV_AMO0", false, 0);
 
 	m_flNextPrimaryAttack = GetNextAttackDelay(0.75);
 
@@ -436,8 +437,6 @@ void CCrossbow::SecondaryAttack()
 
 void CCrossbow::Reload()
 {
-	if (m_pPlayer->ammo_bolts <= 0)
-		return;
 
 	if (m_pPlayer->m_iFOV != 0)
 	{

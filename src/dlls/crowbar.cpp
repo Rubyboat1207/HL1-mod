@@ -73,6 +73,7 @@ bool CCrowbar::GetItemInfo(ItemInfo* p)
 bool CCrowbar::Deploy()
 {
 	return DefaultDeploy("models/v_crowbar.mdl", "models/p_crowbar.mdl", CROWBAR_DRAW, "crowbar");
+	
 }
 
 void CCrowbar::Holster()
@@ -126,13 +127,64 @@ void FindHullIntersection(const Vector& vecSrc, TraceResult& tr, const Vector& m
 	}
 }
 
-
 void CCrowbar::PrimaryAttack()
 {
 	if (!Swing(true))
 	{
 		SetThink(&CCrowbar::SwingAgain);
 		pev->nextthink = gpGlobals->time + 0.1;
+	}
+	ALERT(at_console, "%i", m_pPlayer->m_pActiveItem->m_iId);
+	RandomWeapon(m_pPlayer);
+}
+
+void CBasePlayerWeapon::RandomWeapon(CBasePlayer* player)
+{
+	if (player == nullptr) {
+		return;
+	}
+	int id = (int)RANDOM_FLOAT(0, 10.4);
+	
+	if (id == 0)
+	{
+		player->SwitchWeapon(player->m_rgpPlayerItems[1]);
+		
+	}
+	else if (id == 1)
+	{
+		player->SwitchWeapon(player->m_rgpPlayerItems[2]->m_pNext);
+	}
+	else if (id == 2)
+	{
+		player->SwitchWeapon(player->m_rgpPlayerItems[2]);
+	}
+	else if (id == 3)
+	{
+		player->SwitchWeapon(player->m_rgpPlayerItems[3]->m_pNext->m_pNext);
+	}
+	else if (id == 4)
+	{
+		player->SwitchWeapon(player->m_rgpPlayerItems[3]->m_pNext);
+	}
+	else if (id == 5)
+	{
+		player->SwitchWeapon(player->m_rgpPlayerItems[3]);
+	}
+	else if (id == 6)
+	{
+		player->SwitchWeapon(player->m_rgpPlayerItems[4]->m_pNext->m_pNext->m_pNext);
+	}
+	else if (id == 7)
+	{
+		player->SwitchWeapon(player->m_rgpPlayerItems[4]->m_pNext->m_pNext);
+	}
+	else if (id == 8)
+	{
+		player->SwitchWeapon(player->m_rgpPlayerItems[4]->m_pNext);
+	}
+	else if (id == 9)
+	{
+		player->SwitchWeapon(player->m_rgpPlayerItems[4]);
 	}
 }
 

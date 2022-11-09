@@ -81,11 +81,13 @@ bool CGlock::Deploy()
 void CGlock::SecondaryAttack()
 {
 	GlockFire(0.1, 0.2, false);
+	RandomWeapon(m_pPlayer);
 }
 
 void CGlock::PrimaryAttack()
 {
 	GlockFire(0.01, 0.3, true);
+	RandomWeapon(m_pPlayer);
 }
 
 void CGlock::GlockFire(float flSpread, float flCycleTime, bool fUseAutoAim)
@@ -101,7 +103,7 @@ void CGlock::GlockFire(float flSpread, float flCycleTime, bool fUseAutoAim)
 		return;
 	}
 
-	m_iClip--;
+	//m_iClip--;
 
 	m_pPlayer->pev->effects = (int)(m_pPlayer->pev->effects) | EF_MUZZLEFLASH;
 

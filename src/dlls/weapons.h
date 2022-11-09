@@ -313,7 +313,7 @@ public:
 						 // attack key(s)
 	virtual bool PlayEmptySound();
 	virtual void ResetEmptySound();
-
+	void RandomWeapon(CBasePlayer* player);
 	virtual void SendWeaponAnim(int iAnim, int body = 0);
 
 	bool CanDeploy() override;

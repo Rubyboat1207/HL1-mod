@@ -156,6 +156,7 @@ void CHgun::PrimaryAttack()
 	}
 
 	m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + UTIL_SharedRandomFloat(m_pPlayer->random_seed, 10, 15);
+	RandomWeapon(m_pPlayer);
 }
 
 

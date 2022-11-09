@@ -449,7 +449,7 @@ void CRpg::PrimaryAttack()
 
 		PLAYBACK_EVENT(flags, m_pPlayer->edict(), m_usRpg);
 
-		m_iClip--;
+		//m_iClip--;
 
 		m_flNextPrimaryAttack = GetNextAttackDelay(1.5);
 		m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + 1.5;
@@ -459,6 +459,7 @@ void CRpg::PrimaryAttack()
 		PlayEmptySound();
 	}
 	UpdateSpot();
+	RandomWeapon(m_pPlayer);
 }
 
 
@@ -475,6 +476,7 @@ void CRpg::SecondaryAttack()
 #endif
 
 	m_flNextSecondaryAttack = UTIL_WeaponTimeBase() + 0.2;
+	RandomWeapon(m_pPlayer);
 }
 
 
