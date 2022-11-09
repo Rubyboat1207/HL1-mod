@@ -143,12 +143,16 @@ void CBasePlayerWeapon::RandomWeapon(CBasePlayer* player)
 	if (player == nullptr) {
 		return;
 	}
-	int id = (int)RANDOM_FLOAT(0, 10.4);
+	int id = (int)RANDOM_FLOAT(-0.4, 10.4);
 	
 	if (id == 0)
 	{
+		if (CVAR_GET_FLOAT("sv_do_crowbar_random") == 0)
+		{
+			RandomWeapon(player);
+			return;
+		}
 		player->SwitchWeapon(player->m_rgpPlayerItems[1]);
-		
 	}
 	else if (id == 1)
 	{
@@ -172,7 +176,13 @@ void CBasePlayerWeapon::RandomWeapon(CBasePlayer* player)
 	}
 	else if (id == 6)
 	{
+		if (CVAR_GET_FLOAT("sv_do_rpg_random") == 0) {
+			ALERT(at_console, "SKIPPED");
+			player->SwitchWeapon(player->m_rgpPlayerItems[4]->m_pNext->m_pNext);
+			return;
+		}
 		player->SwitchWeapon(player->m_rgpPlayerItems[4]->m_pNext->m_pNext->m_pNext);
+		
 	}
 	else if (id == 7)
 	{

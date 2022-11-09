@@ -40,6 +40,8 @@ cvar_t teamoverride = {"mp_teamoverride", "1"};
 cvar_t defaultteam = {"mp_defaultteam", "0"};
 cvar_t allowmonsters = {"mp_allowmonsters", "0", FCVAR_SERVER};
 
+
+
 cvar_t allow_spectators = {"allow_spectators", "0.0", FCVAR_SERVER}; // 0 prevents players from being spectators
 
 cvar_t mp_chattime = {"mp_chattime", "10", FCVAR_SERVER};
@@ -448,6 +450,8 @@ cvar_t sk_player_arm3 = {"sk_player_arm3", "1"};
 cvar_t sk_player_leg1 = {"sk_player_leg1", "1"};
 cvar_t sk_player_leg2 = {"sk_player_leg2", "1"};
 cvar_t sk_player_leg3 = {"sk_player_leg3", "1"};
+cvar_t doCrowbarInRandomizer = {"sv_do_crowbar_random", "1", FCVAR_SERVER};
+cvar_t doRPGInRandomizer = {"sv_do_rpg_random", "1", FCVAR_SERVER};
 
 // END Cvars for Skill Level settings
 
@@ -462,12 +466,17 @@ void GameDLLInit()
 	g_footsteps = CVAR_GET_POINTER("mp_footsteps");
 	g_psv_cheats = CVAR_GET_POINTER("sv_cheats");
 
+	
+
 	if (!FileSystem_LoadFileSystem())
 	{
 		//Shut the game down as soon as possible.
 		SERVER_COMMAND("quit\n");
 		return;
 	}
+
+	CVAR_REGISTER(&doCrowbarInRandomizer);
+	CVAR_REGISTER(&doRPGInRandomizer);
 
 	CVAR_REGISTER(&displaysoundlist);
 	CVAR_REGISTER(&allow_spectators);
