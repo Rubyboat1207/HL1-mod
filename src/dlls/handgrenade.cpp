@@ -110,6 +110,7 @@ void CHandGrenade::PrimaryAttack()
 		SendWeaponAnim(HANDGRENADE_PINPULL);
 		m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + 0.5;
 	}
+	RandomWeapon(m_pPlayer);
 }
 
 

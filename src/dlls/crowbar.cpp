@@ -20,7 +20,7 @@
 #include "weapons.h"
 #include "player.h"
 #include "gamerules.h"
-
+#include <vector>
 
 #define CROWBAR_BODYHIT_VOLUME 128
 #define CROWBAR_WALLHIT_VOLUME 512
@@ -143,59 +143,27 @@ void CBasePlayerWeapon::RandomWeapon(CBasePlayer* player)
 	if (player == nullptr) {
 		return;
 	}
-	int id = (int)RANDOM_FLOAT(-0.4, 10.4);
-	
-	if (id == 0)
+	std::vector<char*> weapons = {
+		"weapon_python",
+		"weapon_handgrenade",
+		"weapon_snark",
+		"weapon_crossbow",
+		"weapon_9mmhandgun",
+		"weapon_gauss",
+		"weapon_hornetgun",
+		"weapon_mp5",
+		"weapon_shotgun"
+	};
+	if (CVAR_GET_FLOAT("sv_do_crowbar_random") != 0)
 	{
-		if (CVAR_GET_FLOAT("sv_do_crowbar_random") == 0)
-		{
-			RandomWeapon(player);
-			return;
-		}
-		player->SwitchWeapon(player->m_rgpPlayerItems[1]);
+		weapons.push_back("weapon_crowbar");
 	}
-	else if (id == 1)
+	if (CVAR_GET_FLOAT("sv_do_rpg_random") != 0)
 	{
-		player->SwitchWeapon(player->m_rgpPlayerItems[2]->m_pNext);
+		weapons.push_back("weapon_rpg");
 	}
-	else if (id == 2)
-	{
-		player->SwitchWeapon(player->m_rgpPlayerItems[2]);
-	}
-	else if (id == 3)
-	{
-		player->SwitchWeapon(player->m_rgpPlayerItems[3]->m_pNext->m_pNext);
-	}
-	else if (id == 4)
-	{
-		player->SwitchWeapon(player->m_rgpPlayerItems[3]->m_pNext);
-	}
-	else if (id == 5)
-	{
-		player->SwitchWeapon(player->m_rgpPlayerItems[3]);
-	}
-	else if (id == 6)
-	{
-		if (CVAR_GET_FLOAT("sv_do_rpg_random") == 0) {
-			ALERT(at_console, "SKIPPED");
-			player->SwitchWeapon(player->m_rgpPlayerItems[4]->m_pNext->m_pNext);
-			return;
-		}
-		player->SwitchWeapon(player->m_rgpPlayerItems[4]->m_pNext->m_pNext->m_pNext);
-		
-	}
-	else if (id == 7)
-	{
-		player->SwitchWeapon(player->m_rgpPlayerItems[4]->m_pNext->m_pNext);
-	}
-	else if (id == 8)
-	{
-		player->SwitchWeapon(player->m_rgpPlayerItems[4]->m_pNext);
-	}
-	else if (id == 9)
-	{
-		player->SwitchWeapon(player->m_rgpPlayerItems[4]);
-	}
+	int id = (int)RANDOM_FLOAT(-0.4f, weapons.size());
+	m_pPlayer->SelectItem(weapons[id]);
 }
 
 
